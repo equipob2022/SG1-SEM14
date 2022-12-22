@@ -13,10 +13,13 @@ from nltk.corpus import stopwords
 nltk.download("stopwords")
 def app():
     st.header('Análisis de sentimientos de tweets sobre Pedro Castillo')
+    hashtag=st.text_input(Hastag a buscar: )
     import snscrape.modules.twitter as sntwitter
     cantidad_tweets = st.number_input('Cantidad de tweets a evaluar: ',500,1000)
+    
     # query = "(from:BarackObama) until:2022-01-01 since:2002-01-01"
-    query = "(from:PedroCastilloTe) until:2022-12-22 since:2010-01-01"
+    #query = "(from:PedroCastilloTe) until:2022-12-22 since:2010-01-01"
+    query = "(from:"hashtag") until:2022-12-22 since:2010-01-01"
     tweets = []
     limit = cantidad_tweets
     
