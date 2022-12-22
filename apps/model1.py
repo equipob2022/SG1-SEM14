@@ -20,7 +20,7 @@ def app():
     limit = 500
     
     for tweet in sntwitter.TwitterSearchScraper(query).get_items():
-    if len(tweets) == limit:
+    if len(tweets)==limit:
         break
     else:
         tweets.append([tweet.date.date(), tweet.content]) 
