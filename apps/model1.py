@@ -46,11 +46,11 @@ def app():
     
     #crear una funcion para obtener la subjetividad
     def getSubjectivity(text):
-      return TextBlob(text).sentiment.subjectivity
+        return TextBlob(text).sentiment.subjectivity
 
     #crear una funcion para obtener la polaridad
     def getPolarity(text):
-      return TextBlob(text).sentiment.polarity
+        return TextBlob(text).sentiment.polarity
 
     #crear dos columnas 'Subjectivity' y 'Polarity'
     df['Subjectivity']=df['Tweet'].apply(getSubjectivity)
@@ -59,3 +59,14 @@ def app():
     #mostrar el nuevo dataframe con las dos nuevas columnas 'Subjectivity' y 'Polarity'
     st.subheader('Se añadieron columnas de subjetividad y polaridad') 
     st.write(df)
+    
+    stopwords = set(stopwords.words('spanish', 'english')) 
+    stopwords.update([ "el", "la","lo","del","al","ante","de","desde","con","y","a","e","o","u","en","como","para","se","más","que","nos","este","hasta","su","mi","le","entre","hacia","por","sobre","tu"])
+    
+    st.subheader('Distribución de sentimientos')
+    allWords=' '.join([twts for twts in df['Tweet']])
+    wordCloud=WordCloud(width=500,height=300,random_state=21,max_font_size=110,collocations=False, stopwords = stopwords).generate(allWords)
+
+    plt.imshow(wordCloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
