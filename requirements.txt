@@ -10,3 +10,4 @@ re2==0.2.24
 scikit-learn
 plotly
 tweepy==3.8.0
+snscrape==0.4.3.20220106
