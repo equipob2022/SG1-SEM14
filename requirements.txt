@@ -6,7 +6,6 @@ statsmodels==0.12.2
 textblob==0.17.1
 wordcloud==1.8.2.2
 nltk==3.8
-re2==0.2.24
 scikit-learn
 plotly
 tweepy==3.8.0
