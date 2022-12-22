@@ -9,5 +9,5 @@ re2==0.2.24
 strings==0.1.2
 scikit-learn
 plotly
-streamlit==0.49.0
 tweepy==3.8.0
+streamlit==1.15.2
