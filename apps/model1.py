@@ -60,7 +60,7 @@ def app():
     st.subheader('Se añadieron columnas de subjetividad y polaridad') 
     st.write(df)
     
-    stopwords = set(stopwords.words('spanish','english')) 
+    stopwords=set(stopwords.words('spanish','english')) 
     stopwords.update(["el","la","lo","del","al","ante","de","desde","con","y","a","e","o","u","en","como","para","se","más","que","nos","este","hasta","su","mi","le","entre","hacia","por","sobre","tu"])
     
     st.subheader('Distribución de sentimientos')
