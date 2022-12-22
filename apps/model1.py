@@ -14,10 +14,11 @@ nltk.download("stopwords")
 def app():
     st.title('Model 1 - SVR')
     import snscrape.modules.twitter as sntwitter
+    cantidad_tweets = st.number_input('Cantidad de tweets a evaluar: ')
     # query = "(from:BarackObama) until:2022-01-01 since:2002-01-01"
-    query = "(from:PedroCastilloTe) until:2022-12-14 since:2010-01-01"
+    query = "(from:PedroCastilloTe) until:2022-12-22 since:2010-01-01"
     tweets = []
-    limit = 500
+    limit = cantidad_tweets
     
     for tweet in sntwitter.TwitterSearchScraper(query).get_items():
         if len(tweets)==limit:
@@ -60,13 +61,3 @@ def app():
     st.subheader('Se añadieron columnas de subjetividad y polaridad') 
     st.write(df)
     
-    stopwords=set(stopwords.words('spanish','english')) 
-    stopwords.update(["el","la","lo","del","al","ante","de","desde","con","y","a","e","o","u","en","como","para","se","más","que","nos","este","hasta","su","mi","le","entre","hacia","por","sobre","tu"])
-    
-    st.subheader('Distribución de sentimientos')
-    allWords=' '.join([twts for twts in df['Tweet']])
-    wordCloud=WordCloud(width=500,height=300,random_state=21,max_font_size=110,collocations=False, stopwords = stopwords).generate(allWords)
-
-    plt.imshow(wordCloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
