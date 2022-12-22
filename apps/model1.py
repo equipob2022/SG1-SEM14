@@ -1,13 +1,16 @@
 import streamlit as st
+import tweepy
+from textblob import TextBlob
+from wordcloud import WordCloud, ImageColorGenerator
+from nltk.tokenize import WordPunctTokenizer
 import pandas as pd
 import numpy as np
+import re
+import string
 import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-from pandas_datareader import data as pdr
-from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
-import plotly.express as px
-import datetime
-
+plt.style.use('fivethirtyeight')
+import nltk
+from nltk.corpus import stopwords
+nltk.download("stopwords")
 def app():
     st.title('Model 1 - SVR')
