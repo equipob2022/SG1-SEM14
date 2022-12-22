@@ -12,9 +12,9 @@ import nltk
 from nltk.corpus import stopwords
 nltk.download("stopwords")
 def app():
-    st.title('Model 1 - SVR')
+    st.title('Análisis de sentimientos de tweets sobre Pedro Castillo')
     import snscrape.modules.twitter as sntwitter
-    cantidad_tweets = st.number_input('Cantidad de tweets a evaluar: ')
+    cantidad_tweets = st.number_input('Cantidad de tweets a evaluar: ', value=int)
     # query = "(from:BarackObama) until:2022-01-01 since:2002-01-01"
     query = "(from:PedroCastilloTe) until:2022-12-22 since:2010-01-01"
     tweets = []
