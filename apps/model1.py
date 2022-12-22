@@ -41,4 +41,21 @@ def app():
     df['Tweet']=df['Tweet'].apply(clean_text)
 
     #mostrar los tweets limpiados
+    st.subheader('Datos limpiados (sin menciones, links, hashtags o retweets)') 
     st.write(df) 
+    
+    #crear una funcion para obtener la subjetividad
+    def getSubjectivity(text):
+      return TextBlob(text).sentiment.subjectivity
+
+    #crear una funcion para obtener la polaridad
+    def getPolarity(text):
+      return TextBlob(text).sentiment.polarity
+
+    #crear dos columnas 'Subjectivity' y 'Polarity'
+    df['Subjectivity']=df['Tweet'].apply(getSubjectivity)
+    df['Polarity']=df['Tweet'].apply(getPolarity)
+
+    #mostrar el nuevo dataframe con las dos nuevas columnas 'Subjectivity' y 'Polarity'
+    st.subheader('Se añadieron columnas de subjetividad y polaridad') 
+    st.write(df)
