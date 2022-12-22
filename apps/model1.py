@@ -6,7 +6,6 @@ from nltk.tokenize import WordPunctTokenizer
 import pandas as pd
 import numpy as np
 import re
-from strings import string
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 import nltk
