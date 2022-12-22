@@ -20,10 +20,10 @@ def app():
     limit = 500
     
     for tweet in sntwitter.TwitterSearchScraper(query).get_items():
-    if len(tweets)==limit:
-        break
-    else:
-        tweets.append([tweet.date.date(), tweet.content]) 
+        if len(tweets)==limit:
+            break
+        else:
+            tweets.append([tweet.date.date(), tweet.content]) 
         
     df = pd.DataFrame(tweets, columns=['Date', 'Tweet'])
     
