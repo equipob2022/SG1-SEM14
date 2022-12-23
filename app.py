@@ -9,7 +9,7 @@ st.markdown("""
 """)
 # Add all your application here
 app.add_app("Home", home.app)
-app.add_app("Tweet", model1.app)
+app.add_app("Modelo Twitter", model1.app)
 
 # The main app
 app.run()
