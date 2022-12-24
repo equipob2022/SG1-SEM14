@@ -11,5 +11,5 @@ st.markdown("""
 app.add_app("Home", home.app)
 app.add_app("Modelo Twitter", model1.app)
 
-# The main app
+#The main app
 app.run()
