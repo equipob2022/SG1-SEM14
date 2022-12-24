@@ -9,7 +9,6 @@ import string
 from wordcloud import WordCloud
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
-import seaborn as sns
 import nltk
 from nltk.tokenize import WordPunctTokenizer
 from textblob import TextBlob
